@@ -19,8 +19,9 @@ defmodule Thoughts.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Thoughts do
-  #   pipe_through :api
-  # end
+  scope "/api", Thoughts do
+    pipe_through :api
+
+    resources "/thoughts", ThoughtController, only: [:index]
+  end
 end

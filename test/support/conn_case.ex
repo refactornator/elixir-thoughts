@@ -25,6 +25,7 @@ defmodule Thoughts.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
+      import Thoughts.Factory
       import Thoughts.Router.Helpers
 
       # The default endpoint for testing
