@@ -22,4 +22,10 @@ defmodule Thoughts.ThoughtController do
         |> render(Thoughts.ChangesetView, "error.json", changeset: changeset)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    thought = Repo.get!(Thought, id)
+    Repo.delete!(thought)
+    send_resp(conn, :no_content, "")
+  end
 end

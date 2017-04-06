@@ -30,13 +30,20 @@ defmodule Thoughts.ThoughtControllerTest do
   end
 
   test "#create creates and renders a new thought when data is valid", %{conn: conn} do
-    conn = post conn, thought_path(conn, :create), thought: @valid_attrs
+    conn = post conn, thought_path(conn, :create), @valid_attrs
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(Thought, @valid_attrs)
   end
 
   test "#create does not create a new thought and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, thought_path(conn, :create), thought: @invalid_attrs
+    conn = post conn, thought_path(conn, :create), @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
+  end
+
+  test "#delete deletes a thought", %{conn: conn} do
+    thought = Repo.insert! %Thought{}
+    conn = delete conn, thought_path(conn, :delete, thought)
+    assert response(conn, 204)
+    refute Repo.get(Thought, thought.id)
   end
 end
