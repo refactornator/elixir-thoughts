@@ -22,6 +22,6 @@ defmodule Thoughts.Router do
   scope "/api", Thoughts do
     pipe_through :api
 
-    resources "/thoughts", ThoughtController, only: [:index]
+    resources "/thoughts", ThoughtController, only: [:index, :create]
   end
 end
