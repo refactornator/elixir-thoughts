@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hello Thoughts!</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADm5uYAAAAAAM/PzwDo6OgA////ALq6ugDMzMwAgICAAJSUlADy8vIA29vbAL29vQCPj48ApqamAAAAAAAAAAAAGBERERERERFUURERERERERoRERERERERERiBERERERERUAURERERERFURRdxERERERqhe7d3cRERERHGa7u8ERERHWM2ZmbRERFTOZMzM1EREVmUSZmTURERFUREREmVERERVEREREUREREkRURKoRERERqhqqERERERERERERG//wAAH/8AAL//AADn/wAAw/8AAMJ/AADkBwAA/AMAAPgBAADwAQAA8AEAAPgAAAD8AAAA/AEAAP5HAAD//wAA" rel="icon" type="image/x-icon" />
+    <title>Thoughts</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-  </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <!-- Error Tracking -->
+    <script src="https://cdn.ravenjs.com/3.10.0/raven.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <script src="<%= static_path(@conn, "/js/start.js") %>"></script>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+    <script>
+    /*<![CDATA[*/
+        Raven.config('https://91703d8d83604327b50323979a98c791@sentry.io/138171', {
+          ignoreUrls: [/localhost/]
+        }).install();
+    /*]]>*/
+    </script>
+</body>
 </html>

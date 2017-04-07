@@ -1,0 +1,4 @@
+exports[`App renders the Thought Input and the Thought List 1`] = `
+<div
+  className="container" />
+`;

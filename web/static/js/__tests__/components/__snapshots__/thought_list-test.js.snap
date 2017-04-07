@@ -1,0 +1,6 @@
+exports[`ThoughtList renders a list of thoughts correctly 1`] = `
+<ul
+  className="thoughts">
+  <span />
+</ul>
+`;

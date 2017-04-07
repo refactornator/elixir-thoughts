@@ -1,1 +1,134 @@
-/* This file is for your main application css. */
+html,body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: hidden;
+}
+
+body {
+  font-size: 1.8em;
+  line-height: 1.6;
+  font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+textarea {
+  width: 99%;
+  height: 60px;
+  resize: none;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  border-color: #00B0FF;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  max-width: 587px;
+  display: block;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.container {
+  height: 100%;
+  padding: 0;
+}
+
+.thought-input {
+  top: 0;
+  position: fixed;
+}
+
+.thoughts {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 144px;
+  z-index: 2;
+  position: absolute;
+  height: calc(100% - 145px);
+  transition: all 1000ms ease-in;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* iPhone 6 and greater Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 2) { 
+  .thoughts {
+    overflow: scroll;
+  }
+}
+
+.thoughts-appear {
+  opacity: 0.1;
+}
+
+.thoughts-appear.thoughts-appear-active {
+  opacity: 1;
+  transition: opacity 600ms ease-in;
+}
+
+.thoughts-enter {
+  opacity: 0.5;
+  transform: translateY(-150px);
+}
+
+.thoughts-enter.thoughts-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 600ms ease-in;
+}
+
+.thoughts-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.thoughts-leave.thoughts-leave-active {
+  opacity: 0.5;
+  transform: translateX(-1000px);
+  transition: all 400ms ease-in;
+}
+
+.thought-card {
+  display: block;
+  position: relative;
+  border: #E3F2FD 1px solid;
+  padding: 11px;
+  margin-bottom: 0;
+}
+
+.thought-card > p {
+  margin-bottom: 0;
+}
+
+.thought-card .relative-time {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.541176);
+}
+
+.remember-button {
+  margin-left: auto;
+}
+
+.delete-button {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+}
